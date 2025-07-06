@@ -1,0 +1,44 @@
+import java.util.*;
+
+public class AttendanceManagementSystem {
+    static class Student {
+        String name;
+        boolean isPresent;
+
+        Student(String name) {
+            this.name = name;
+            this.isPresent = false;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Sample students
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Arun"));
+        students.add(new Student("Bala"));
+        students.add(new Student("Chitra"));
+        students.add(new Student("Deepa"));
+
+        System.out.println("=== Attendance Management System ===");
+
+        // Mark attendance
+        for (Student student : students) {
+            System.out.print("Is " + student.name + " present? (yes/no): ");
+            String input = scanner.nextLine().toLowerCase();
+            student.isPresent = input.equals("yes");
+        }
+
+        // Display Attendance Report
+        System.out.println("\n--- Attendance Report ---");
+        for (Student student : students) {
+            System.out.println(student.name + " - " + (student.isPresent ? "Present" : "Absent"));
+        }
+
+        scanner.close();
+    }
+}
+
+
+
